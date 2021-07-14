@@ -2,6 +2,8 @@
 <head>
   <meta charset="UTF-8">
   <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+
+  <script src="../examples/export-avatars-positions.js"></script>
   
   <!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
 
@@ -37,8 +39,16 @@
   <div id = "sketch1">
     <!-- p5 instance will be created here -->
   </div>
-  <div id = "sketch2">
-    <iframe id="myFrame" src="https://hubs.mozilla.com/xXQWBFd?embed_token=cb46ca505305ce7571689f5780761597" style="width: 1024px; height: 768px;" allow="microphone; camera; vr; speaker;"></iframe>
+
+    <div id="sketch2" style="width: 100%; overflow: hidden;">
+      <div style="width: 70vw; float: left;">
+        <iframe id="myFrame" src="https://hubs.mozilla.com/xXQWBFd?embed_token=cb46ca505305ce7571689f5780761597" style="width: 70vw; height: 100vh" allow="microphone; camera; vr; speaker;"></iframe>
+      </div>
+      <div style="margin-left: 75vw;">  <h1> Bienvenid@s!!</h1> </div>
+    </div>
+   
+    
+
   </div>
   <!-- <div id="blinkText" style="z-index: 1000">
    <p> 
@@ -51,20 +61,9 @@
    <!-- <ol id="drawinglist">
 
     </ol>-->
-  <script type="text/javascript">
+
+<script type="text/javascript">
   
-  // Make the DIV element draggable:
-	const {HubsBot} = require('hubs-client-bot')
-
-	async function runBot() {
-  	let bot = new HubsBot()
-  	await bot.enterRoom("https://hubs.mozilla.com/xXQWBFd/tattered-dependent-meet/", {name: "My First Bot"})
-  	//await bot.spawnObject({url: URL_TO_AN_OBJECT})
-  	await bot.say("Hello World I'm here!")
-}
-
-runBot()
-
 
 
 
