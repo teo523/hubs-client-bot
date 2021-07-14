@@ -11,7 +11,7 @@ class ImportExportBot extends HubsBot {
     this.onlyPinned = onlyPinned
   }
   
-
+  //First wait to access the room
   async accessRoom(room) {
     await this.enterRoom(room)
  
@@ -22,6 +22,7 @@ class ImportExportBot extends HubsBot {
     return this;
   }
 
+  //Get (x,y,z) coordinates of connected avatars
   async exportFromRoom() {
     
  
@@ -30,12 +31,16 @@ class ImportExportBot extends HubsBot {
       var a = "";
       var b = [];
 
+      //array with each gltf model
       objArray = await Array.from(document.querySelectorAll("[gltf-model-plus]"));    
       
+
       for (let i = 0; i < objArray.length;i++){
+        //only user avatars contain the class=model, so we filter them
         if (objArray[i].classList[0]=="model") {
         a = await NAF.utils.getNetworkedEntity(objArray[i]);
       }
+        //add position coordinates to array b.
         if (objArray[i].classList[0]=="model")
           b.push(a.object3D.position);
       }
@@ -65,6 +70,7 @@ class ImportExportBot extends HubsBot {
     }
   }
 
+//Continuously call exportFromRoom()
  async recursiveCall() {
 this.exportFromRoom().then((o) => process.stdout.write(o)).then(() => this.page.waitFor(5000)).then(() =>this.recursiveCall());
 
