@@ -1,0 +1,74 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+  
+  <!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
+
+  
+</head>
+
+
+
+<style type="text/css">
+  
+  #blinkText {
+  position: absolute;
+  animation: blinker 1s linear infinite;
+  color: white;
+
+}
+  .images {
+  position: absolute;
+  clip-path: inset(10px 20px 30px 40px);
+}
+  .myimg {
+    clip-path: inset(10px 20px 30px 40px);
+  }
+ 
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+</style>
+
+<body>
+ 
+  <div id = "sketch1">
+    <!-- p5 instance will be created here -->
+  </div>
+  <div id = "sketch2">
+    <iframe id="myFrame" src="https://hubs.mozilla.com/xXQWBFd?embed_token=cb46ca505305ce7571689f5780761597" style="width: 1024px; height: 768px;" allow="microphone; camera; vr; speaker;"></iframe>
+  </div>
+  <!-- <div id="blinkText" style="z-index: 1000">
+   <p> 
+  Muro de la persona que te invitó
+   </p>
+   <img src="assets/images/arrow.png" width="40">
+  </div> -->
+
+
+   <!-- <ol id="drawinglist">
+
+    </ol>-->
+  <script type="text/javascript">
+  
+  // Make the DIV element draggable:
+	const {HubsBot} = require('hubs-client-bot')
+
+	async function runBot() {
+  	let bot = new HubsBot()
+  	await bot.enterRoom("https://hubs.mozilla.com/xXQWBFd/tattered-dependent-meet/", {name: "My First Bot"})
+  	//await bot.spawnObject({url: URL_TO_AN_OBJECT})
+  	await bot.say("Hello World I'm here!")
+}
+
+runBot()
+
+
+
+
+
+</script>
+</body>
+</html>
