@@ -1,7 +1,7 @@
 //Created by Teodoro Dannemann --->  https://github.com/teo523
 //Credits to Zach Capalbo ---> https://github.com/zach-capalbo/hubs-client-bot
 
-var a = 0;
+
 const {HubsBot} = require('./index.js')
 const fs = require('fs')
 var variable;
