@@ -42,7 +42,15 @@ class ImportExportBot extends HubsBot {
       for (let i = 0; i < objArray.length;i++){
         //only user avatars contain the class=model, so we filter them
         if (objArray[i].classList[0]=="model") {
-        a = await NAF.utils.getNetworkedEntity(objArray[i]);
+          try {
+            a = await NAF.utils.getNetworkedEntity(objArray[i]);
+            throw new Error("foo error");
+          }
+          catch(e) {
+            console.log(e);
+
+          }
+
       }
         //add position coordinates to array b.
         if (objArray[i].classList[0]=="model")
