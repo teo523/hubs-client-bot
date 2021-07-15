@@ -1,8 +1,8 @@
 
 
-const {HubsBot} = require('../index.js')
+const {HubsBot} = require('./index.js')
 const fs = require('fs')
-
+var variable;
 
 class ImportExportBot extends HubsBot {
   constructor({onlyPinned} = {}) {
@@ -74,7 +74,7 @@ class ImportExportBot extends HubsBot {
 
 //Continuously call exportFromRoom()
  async recursiveCall() {
-this.exportFromRoom().then((o) => process.stdout.write(o)).then(() => this.page.waitFor(5000)).then(() =>this.recursiveCall());
+this.exportFromRoom().then((o) => {process.stdout.write(o); variable = o;}).then(() => this.page.waitFor(500)).then(() =>this.recursiveCall());
 
 }
 
@@ -159,10 +159,17 @@ app.get('/', function (req, res) {
 io.sockets.on('connection', function (socket) {
     
     var id = socket.id;
+
+    setInterval(() => {
+    
+    io.emit('message', variable);
+}, 10);
     
     console.log('[*] info: new connection ' + socket.id);
 
 });
+
+console.log("hola");
 
 let opts = parseOpts()
 

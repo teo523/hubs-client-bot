@@ -6,27 +6,31 @@
 //Giphy
 
 
-var aa;
-var iframe = document.getElementById("myFrame").contentWindow;
+var parsedStream;
 
 function setup() {
 
-
+var canvas = createCanvas(windowWidth/4,windowHeight/3);
+canvas.parent("rightDiv");
 }
 
 
 function draw(){
+	background(0);
+	if (stream != undefined ) {
 
-	aa = iframe.document.querySelectorAll("[gltf-model-plus]");
-
-	if (aa.length > 0){
 		
-		iframe.NAF.utils.getNetworkedEntity(aa[0]).then(e1 => {
+		parsedStream = JSON.parse(stream);
+		for (i in parsedStream){
+			var x1 = map(parsedStream[i].x,-3.78,3.78,0,width);
+			var z1 = map(parsedStream[i].z,-9,4.4,0,height);
+			fill(255,0,0);
+			ellipse(x1,z1,10,10);
+			//console.log("x: "+ parsedStream[i].x + ". z: " + parsedStream[i].z);
 
-			e1.setAttribute("position", "0,0,0");
-			console.log("a");
-		})
+		}
+
+
+
 	}
-
-
 }
