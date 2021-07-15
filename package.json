@@ -4,7 +4,7 @@
   "description": "A puppeteer-based bot library for mozilla hubs",
   "main": "export-avatars-positions.js",
   "scripts": {
-    "start": "node export-avatars-positions.js"
+    "start": "node export-avatars-positions.js https://hubs.mozilla.com/xXQWBFd/tattered-dependent-meet/"
   },
   "repository": {
     "type": "git",
